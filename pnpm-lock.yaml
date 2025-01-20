@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  lucide:
+    specifier: ^0.473.0
+    version: 0.473.0
   react:
     specifier: ^18.3.1
     version: 18.3.1
@@ -1677,6 +1680,10 @@ packages:
     dependencies:
       yallist: 3.1.1
     dev: true
+
+  /lucide@0.473.0:
+    resolution: {integrity: sha512-UIUNzfoXpYQQKiQO1M0bOOwv1BJt8EYSSFJt2HsVv39nd97lvA5H80Z+pmmeiW0cheUmWNpvh5w4JI0eZypd4Q==}
+    dev: false
 
   /merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
