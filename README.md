@@ -112,7 +112,7 @@ O formulário é renderizado com campos para nome, e-mail, senha, país e experi
 ```
 
 ## Submissão do Formulário
-A função createUser é chamada quando o formulário é submetido, e o resultado é exibido em um elemento <pre>:
+A função createUser é chamada quando o formulário é submetido, e o resultado é exibido em um elemento `<pre>`:
 
 
 ```ts
@@ -121,5 +121,9 @@ function createUser(data: any) {
 }
 ```
 
+## Links Úteis
+ - [Documentação do React Hook Form](https://react-hook-form.com/)
+ - [Documentação do Zod](https://zod.dev/)
+ - [Integração React Hook Form e Zod](https://github.com/react-hook-form/resolvers)
 
 
