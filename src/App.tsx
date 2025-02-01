@@ -4,15 +4,15 @@ import { useForm, useFieldArray } from "react-hook-form"
 import { z } from "zod"
 
 const createUserFormSchema = z.object({
-  name: z.string().nonempty('O nome é obrigatório.'),
-  countries: z.string().nonempty('Escolha um país válido.').refine(value => value !== '', 'Escolha um país válido.'),
-  email: z.string().nonempty('O e-mail é obrigatório.').email('Formato de e-mail inválido.'),
-  password: z.string().nonempty('A senha é obrigatória').min(8, 'A senha deve ter no mínimo 8 caracteres.'),
+  name: z.string().nonempty('Name is required.'),
+  countries: z.string().nonempty('Please select a valid country.').refine(value => value !== '', 'Please select a valid country.'),
+  email: z.string().nonempty('Email is required.').email('Invalid email format.'),
+  password: z.string().nonempty('Password is required.').min(8, 'Password must be at least 8 characters long.'),
   workExperiences: z.array(z.object({
-    title: z.string().nonempty('O título do cargo é obrigatório.'),
-    description: z.string().nonempty('A descrição das responsabilidades é obrigatória.'),
-    duration: z.coerce.number().min(1, 'A duração deve ser no mínimo 1 mês.')
-  })).min(1, 'Adicione pelo menos uma experiência profissional.')
+    title: z.string().nonempty('Job title is required.'),
+    description: z.string().nonempty('Responsibilities description is required.'),
+    duration: z.coerce.number().min(1, 'Duration must be at least 1 month.')
+  })).min(1, 'Please add at least one work experience.')
 })
 
 type CreateUserFormData = z.infer<typeof createUserFormSchema>
