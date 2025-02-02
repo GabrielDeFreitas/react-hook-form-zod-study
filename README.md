@@ -15,7 +15,7 @@ A combinação dessas duas bibliotecas permite criar formulários robustos e seg
  - `@hookform/resolvers`: Integração entre React Hook Form e bibliotecas de validação como Zod.
 
 ```
-npm install react-hook-form zod @hookform/resolvers
+pnpm install react-hook-form zod @hookform/resolvers
 ```
 ## Estrutura do Código
 
