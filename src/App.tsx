@@ -1,3 +1,4 @@
+
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
 import { useForm, useFieldArray } from "react-hook-form"
@@ -6,7 +7,7 @@ import { CreateUserFormData, createUserFormSchema } from "./utils/schemas/create
 export default function App() {
   const [output, setOutput] = useState('')
 
-  const { register, handleSubmit, formState: { errors }, control } = useForm<CreateUserFormData>({
+  const { register, handleSubmit, formState: { errors, isValid }, control } = useForm<CreateUserFormData>({
     resolver: zodResolver(createUserFormSchema),
     mode: 'onChange'
   })
@@ -91,7 +92,7 @@ export default function App() {
         {errors.password && <span role="alert" className="mt-2 text-sm text-red-600">{errors.password.message}</span>}
       </div>
 
-      <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+      <button type="submit" disabled={!isValid} aria-disabled={!isValid} className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-50">Submit</button>
 
       <pre className="py-8">{output}</pre>
     </form>
