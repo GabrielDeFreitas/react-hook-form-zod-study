@@ -7,7 +7,8 @@ export default function App() {
   const [output, setOutput] = useState('')
 
   const { register, handleSubmit, formState: { errors }, control } = useForm<CreateUserFormData>({
-    resolver: zodResolver(createUserFormSchema)
+    resolver: zodResolver(createUserFormSchema),
+    mode: 'onChange'
   })
 
   const { fields, append, remove } = useFieldArray({
@@ -17,7 +18,7 @@ export default function App() {
 
   console.log('form state log:', errors)
 
-  function createUser(data: any) {
+  function createUser(data: CreateUserFormData) {
     setOutput(JSON.stringify(data, null, 2))
   }
 
