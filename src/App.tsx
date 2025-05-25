@@ -7,7 +7,7 @@ import { CreateUserFormData, createUserFormSchema } from "./utils/schemas/create
 export default function App() {
   const [output, setOutput] = useState('')
 
-  const { register, handleSubmit, formState: { errors, isValid }, control } = useForm<CreateUserFormData>({
+  const { register, handleSubmit, formState: { errors, isValid }, control, watch } = useForm<CreateUserFormData>({
     resolver: zodResolver(createUserFormSchema),
     mode: 'onChange'
   })
@@ -34,6 +34,12 @@ export default function App() {
         <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900">Your name</label>
         <input {...register('name')} type="text" id="name" aria-invalid={!!errors.name} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Your name" />
         {errors.name && <span role="alert" className="mt-2 text-sm text-red-600">{errors.name.message}</span>}
+      </div>
+
+      <div className="mb-5">
+        <label htmlFor="dateOfBirth" className="block mb-2 text-sm font-medium text-gray-900">Date of birth</label>
+        <input type="dateOfBirth" {...register('dateOfBirth')} id="dateOfBirth" aria-invalid={!!errors.dateOfBirth} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
+        {errors.dateOfBirth && <span role="alert" className="mt-2 text-sm text-red-600">{errors.dateOfBirth.message}</span>}
       </div>
 
       <div className="mb-5">
